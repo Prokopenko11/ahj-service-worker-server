@@ -1,10 +1,12 @@
 const Koa = require('koa');
 const slow = require('koa-slow');
 const cors = require('@koa/cors');
+const { koaBody } = require('koa-body');
 
 const app = new Koa();
 
 app.use(cors());
+app.use(koaBody());
 
 app.use(slow({ delay: 5000 }));
 
